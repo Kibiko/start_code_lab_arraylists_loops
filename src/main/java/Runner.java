@@ -25,7 +25,7 @@ public class Runner {
 //        5. Remove "Tresco" from the list by name
         scottishIslands.remove("Tresco");
 //        6. Remove "Arran" from the list by index
-        scottishIslands.remove(scottishIslands.indexOf("Arran"));
+        scottishIslands.remove(scottishIslands.indexOf("Arran")); //scottishIslands.remove(5);
 //        7. Print the number of islands in your arraylist
         System.out.println("Number of islands: " + scottishIslands.size());
 //        8. Sort the list alphabetically
@@ -44,14 +44,40 @@ public class Runner {
         System.out.println("numbers: " + numbers);
 
 //        1. Print out a list of the even integers
+        for (int number : numbers){
+            if (number %2 == 0){
+                System.out.println(number);
+            }
+        }
 //        2. Print the difference between the largest and smallest value
+        System.out.println(Collections.max(numbers) - Collections.min(numbers));
 //        3. Print True if the list contains a 1 next to a 1 somewhere.
+        int previousNum = numbers.get(0);
+        for (int i = 1; i < numbers.size(); i++) {
+            if (previousNum == 1 && previousNum == numbers.get(i)){
+                System.out.println("True");
+            }
+            previousNum = numbers.get(i);
+        }
 //        4. Print the sum of the numbers,
+        int sum = 0;
+        for (int i = 0; i < numbers.size(); i++) {
+            sum+=numbers.get(i);
+        }
+        System.out.println(sum);
 //        5. Print the sum of the numbers...
 //           ...except the number 13 is unlucky, so it does not count...
 //           ...and numbers that come immediately after a 13 also do not count.
 //
 //          So [2, 7, 13, 2] would have sum of 9.
+        int luckySum = 0;
+        for (int i = 0; i < numbers.size() ; i++) {
+            if (numbers.get(i) == 13){
+                break;
+            }
+            luckySum+=numbers.get(i);
+        }
+        System.out.println(luckySum);
 
     }
 
