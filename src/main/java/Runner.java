@@ -19,7 +19,7 @@ public class Runner {
 //        2. Add "Tiree" to the start of the list
         scottishIslands.add(0,"Tiree");
 //        3. Add "Islay" after "Jura" and before "Mull"
-        scottishIslands.add(scottishIslands.indexOf("Jura")+1,"Islav");
+        scottishIslands.add(scottishIslands.indexOf("Jura")+1,"Islay");
 //        4. Print out the index position of "Skye"
         System.out.println("Index of Skye: " + scottishIslands.indexOf("Skye"));
 //        5. Remove "Tresco" from the list by name
@@ -27,9 +27,10 @@ public class Runner {
 //        6. Remove "Arran" from the list by index
         scottishIslands.remove(scottishIslands.indexOf("Arran")); //scottishIslands.remove(5);
 //        7. Print the number of islands in your arraylist
-        System.out.println("Number of islands: " + scottishIslands.size());
+        int numberOfIslands = scottishIslands.size();
+        System.out.println("Number of islands: " + numberOfIslands);
 //        8. Sort the list alphabetically
-        Collections.sort(scottishIslands);
+        Collections.sort(scottishIslands); //destructive method - changes original
 //        9. Print out all the islands using a for loop
         for (String island : scottishIslands){
             System.out.println(island);
@@ -38,31 +39,33 @@ public class Runner {
         System.out.println(scottishIslands);
 
 //        NUMBERS
-        List<Integer> numbers = new ArrayList<>();
+        ArrayList<Integer> numbers = new ArrayList<>();
         Collections.addAll(numbers, 1, 1, 4, 2, 7, 1, 6, 15, 13, 99, 7);
 
         System.out.println("numbers: " + numbers);
 
 //        1. Print out a list of the even integers
+        ArrayList<Integer> evenNumbers = new ArrayList<>();
         for (int number : numbers){
             if (number %2 == 0){
-                System.out.println(number);
+                evenNumbers.add(number);
             }
         }
+        System.out.println(evenNumbers);
 //        2. Print the difference between the largest and smallest value
         System.out.println(Collections.max(numbers) - Collections.min(numbers));
 //        3. Print True if the list contains a 1 next to a 1 somewhere.
         int previousNum = numbers.get(0);
         for (int i = 1; i < numbers.size(); i++) {
             if (previousNum == 1 && previousNum == numbers.get(i)){
-                System.out.println("True");
+                System.out.println(true);
             }
             previousNum = numbers.get(i);
         }
 //        4. Print the sum of the numbers,
         int sum = 0;
-        for (int i = 0; i < numbers.size(); i++) {
-            sum+=numbers.get(i);
+        for (int number : numbers) {
+            sum+=number;
         }
         System.out.println(sum);
 //        5. Print the sum of the numbers...
